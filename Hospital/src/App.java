@@ -1,7 +1,4 @@
-import Entity.DoctorFactory;
-import Entity.Head_PhysicianFactory;
-import Entity.SurgeonFactory;
-import Entity.TraumatologistFactory;
+import Entity.*;
 
 import java.util.Scanner;
 
@@ -9,8 +6,7 @@ public class App {
     private DoctorForm doctorForm;
     Scanner scanner = new Scanner(System.in);
 
-
-    public void getDoctor() {
+    public Doctor getDoctor() {
         String domainDoctor = scanner.nextLine().toLowerCase();
         DoctorFactory doctorFactory;
 
@@ -22,8 +18,9 @@ public class App {
             doctorFactory = new TraumatologistFactory();
         } else {
             System.out.println("There is no doctor in the hospital ");
-            return;
+            return null;
         }
         doctorForm = new DoctorForm(doctorFactory);
+        return null;
     }
 }
